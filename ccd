@@ -1,0 +1,17 @@
+oid process(int n,struct process p[]);
+     
+main(){
+
+
+     int sbt=0,t,stt=0,ct,tat,swt=0,rt;
+     int i,j,n;
+     float att=0,awt=0,hrr=-50;
+     float temp;
+     int loc;
+   
+     printf("\nEnter the number of processes.");
+     scanf("%d",&n);
+
+     printf("\nEnter the process name,burst time and arrival time of the processes.");
+     
+     for(i=1;i<=n;i++){

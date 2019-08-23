@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct process{
+
+	char name;
+    int at,bt,ct,tt,wt,rt;
+    int done;
+    int nnt;
+}p[10];
+
+void process(int n,struct process p[]);
+     
+main(){
+
+
+     int sbt=0,t,stt=0,ct,tat,swt=0,rt;
+     int i,j,n;
+     float att=0,awt=0,hrr=-50;
+     float temp;
+     int loc;
+   
+     printf("\nEnter the number of processes.");
+     scanf("%d",&n);
+
+     printf("\nEnter the process name,burst time and arrival time of the processes.");
+     
+     for(i=1;i<=n;i++){
+     
+             scanf("%s",p[i].name);
+             scanf("%d%d",&p[i].at,&p[i].bt);
+           
+                p[i].done=0;
+                sbt+=p[i].bt;
+
+            } 
+              sort(n,p);
+            
+            printf("\nPROCESS\tBURST\tARRIVAL\tTAT\tWAITING\n");
+
+         for(t=p[1].at;t<sbt; ){
+
+            	if(p[i].at <= t && p[i].done != 1){
+
+                       temp=(p[i].bt +(t-p[i].at))/p[i].bt;         
+
+
+                     if(hrr < temp){
+
+            			hrr=temp;
+            			loc=i;
+
+            		}
+
+
+            	}
+            
+
+               t+=p[loc].bt;
+               p[loc].wt=t-p[loc].at-p[loc].bt;
+
+               p[loc].tt= t-p[loc].at;
+
+               stt+=p[loc].tt;
+               p[loc].done=1;
+               swt+=p[loc].wt;
+
+              p[loc].ntt+=((float)p[loc].tt/(float)p[loc].bt);
+
+                 printf("%c\t%d\t%d\t%d\t%d\n",p[loc].name,p[loc].at,p[loc].bt,p[loc].tt,p[loc].wt);
+
+
+
+   }
+           awt=(float)swt/(float)n;
+           att=(float)stt/(float)n;
+
+           printf("\nThe average waiting time is: %f",awt);
+           printf("\n The average turn around Time is : %f",att);
+
+ }
+
+void sort(int n,struct process p[]){
+int i,j;
+struct proc_hrrn temp;
+ for(i=1;i<n;i++){
+        
+        for(j=i+1;j<=n;j++){
+
+              if(p[i].at > p[j].at){
+
+                 temp=p[i];
+                  p[i]=p[j];
+                  p[j]=temp;
+                    
+                }
+
+        }
+      }
+}
